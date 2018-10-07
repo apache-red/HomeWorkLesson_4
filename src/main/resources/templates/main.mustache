@@ -1,0 +1,48 @@
+<html>
+<body>
+<div> Add a new object to the database </div>
+<div>
+    <form method="post" action="/main">
+        <input type="number" name="apartmentNumber" placeholder="Enter apartment number"/>
+        <input type="number" name="area" placeholder="Enter flat area "/>
+        <input type="number" name="floor" placeholder="Enter floor "/>
+        <input type="number" name="numberOfRooms" placeholder="Enter number of rooms "/>
+        <input type="text" name="street" placeholder="Enter street "/>
+        <input type="text" name="buildingType" placeholder="Enter building type "/>
+        <input type="number" name="lifetime" placeholder="Enter life time "/>
+        <button type="submit">Add</button>
+    </form>
+</div>
+<div> Find a list of apartments with a specified number of rooms</div>
+<form method="post" action="filterCondition1">
+    <input type="text" name="filter">
+    <button type="submit">Find</button>
+</form>
+</form>
+<div> Find a list of apartments with the specified number of rooms and on the floor, which is in a given interval;</div>
+<form method="post" action="filterCondition2">
+<input type="number" name="filter">
+<button type="submit">Find</button>
+</form>
+<div> Find a list of apartments with an area that exceeds the specified</div>
+<form method="post" action="filterCondition2">
+<input type="number" name="filter">
+<button type="submit">Find</button>
+</form>
+<div> Received data: </div>
+{{#messages}}
+    <div>
+        <b>ID: {{id}}. </b>
+        <span>Apartment Number: {{apartmentNumber}}. </span>
+        <span>Area: {{area}}. </span>
+        <span>Floor: {{floor}}. </span>
+        <span>Number Of Rooms: {{numberOfRooms}}. </span>
+        <span>Street: {{street}}. </span>
+        <span>Building Type: {{buildingType}}. </span>
+         <span>Life Time: {{lifetime}}. </span>
+    </div>
+{{/messages}}
+</body>
+
+</html>
+
