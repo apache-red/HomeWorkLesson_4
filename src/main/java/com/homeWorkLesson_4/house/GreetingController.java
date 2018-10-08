@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -64,10 +65,14 @@ public class GreetingController {
     }
 
     @PostMapping("filterCondition2")
-    public String filterCondition2(@RequestParam Integer filter, Map<String, Object> model) {
+    public String filterCondition2(@RequestParam Integer filter,@RequestParam Integer filter2,
+                                   @RequestParam Integer filter3,
+                                   Map<String, Object> model) {
         Iterable<Message> messages;
-        if (filter != null && filter !=0 && filter >0) {
-            messages = messageRepo.findByNumberOfRooms(filter);
+        if ((filter != null && filter != 0 && filter > 0)
+                && (filter2 != null && filter2 != 0 && filter2 > 0)
+                && (filter3 != null && filter3 != 0 && filter3 > 0)) {
+        messages = messageRepo.findByFloorBetweenAndNumberOfRooms(filter2,filter3, filter);
         } else {
             messages = messageRepo.findAll();
         }
@@ -88,6 +93,5 @@ public class GreetingController {
         model.put("messages", messages);
         return "main";
     }
-
 
 }

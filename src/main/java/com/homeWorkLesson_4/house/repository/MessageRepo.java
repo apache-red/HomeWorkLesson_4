@@ -11,4 +11,11 @@ public interface MessageRepo extends CrudRepository<Message, Long> {
 
        List <Message> findByAreaGreaterThan(Double area);
 
+       List <Message> findByFloorBetween(Integer filter1, Integer filter2);
+
+       List <Message> findByFloorBetweenAndNumberOfRooms(Integer filter1, Integer filter2, Integer filter);
+
+
+
+
 }
